@@ -19,6 +19,14 @@
                                 </ul>
                             </li>
 
+                            <li> 
+                                 <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>Users</span></a>
+                                <ul class="collapse">
+                                    <li><a href="{{route('users.index')}}">All User</a></li>
+                                    <li><a href="{{route('users.create')}}">Create User</a></li>
+                                </ul>
+                            </li>
+
                         </ul>
                     </nav>
                 </div>

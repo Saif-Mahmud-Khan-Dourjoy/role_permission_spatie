@@ -7,7 +7,7 @@
                             <h4 class="page-title pull-left">Dashboard</h4>
                             <ul class="breadcrumbs pull-left">
                                 <li><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                <li><span>ALL Roles</span></li>
+                                <li><span>ALL Users</span></li>
                             </ul>
                         </div>
                     </div>
@@ -28,21 +28,23 @@
                                             <tr class="heading-td">
                                                 <td class="mv-icon">SL</td>
                                                 <td class="">Name</td>
-                                                <td class="">Permission</td>
+                                                <td class="">Email</td>
+                                                <td class="">Role</td>
                                                 <td class="buy">Action</td>
                                                 
                                             </tr>
 
-                                            @foreach($roles as $item)
+                                            @foreach($users as $item)
                                             <tr>
                                                 <td>{{$loop->iteration}}</td>
                                                 <td>{{$item->name}}</td>
-                                                @foreach($item->permissions as $perm)
+                                                <td>{{$item->email}}</td>
+                                                {{-- @foreach($item->permissions as $perm)
                                                 <td > <span class="badge badge-info mr-1">{{$perm->name}}</span></td>
-                                                @endforeach    
+                                                @endforeach  --}}   
                                                 <td>
-                                                    <a class="btn btn-success" href="{{route('roles.edit',$item->id)}}">Edit</a>
-                                                    <form action="{{route('roles.destroy',$item->id)}}" method="POST">
+                                                    <a class="btn btn-success" href="{{route('users.edit',$item->id)}}">Edit</a>
+                                                    <form action="{{route('users.destroy',$item->id)}}" method="POST">
                                                     @csrf
                                                     @method('DELETE') 
                                                         <button type="submit" class="btn btn-danger">Delete</button>
